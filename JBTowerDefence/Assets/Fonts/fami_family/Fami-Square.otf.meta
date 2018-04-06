@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6347beb950db34c9da5f11c4f417920d
+timeCreated: 1521174115
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Fami Square
+  fontNames:
+  - Fami Square
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b7ab96451394c45e986abbfd560d42ce, type: 3}
+  customCharacters: 
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

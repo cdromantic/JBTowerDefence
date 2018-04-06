@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a82139584688345c4b9cf0493df6bed8
+timeCreated: 1521174116
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Fami Sans Condensed
+  fontNames:
+  - Fami Sans Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 04122ab2fcda54318944dff84aee140f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
