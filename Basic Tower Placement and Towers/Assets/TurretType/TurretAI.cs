@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurretAI : MonoBehaviour {
     [SerializeField]
     GameObject currentTarget;
+    public Sprite bulletSprite;
     bool hasCurrentTarget = false;
     public float turretPower = 5f;
     public float turretRange = 10f;
@@ -12,7 +13,7 @@ public class TurretAI : MonoBehaviour {
 
     float dist;
 
-    public int reloadTime = 3;
+    public float reloadTime = 3;
     private float reloadTimef;
     float reloadTimer = 0;
 
@@ -59,7 +60,7 @@ public class TurretAI : MonoBehaviour {
 
     void ShootCheck() {
         if (currentTarget != null) {
-            if (!(Vector3.Magnitude(currentTarget.transform.position - transform.position) > turretRange)) {
+            if (!(Vector3.Magnitude(currentTarget.transform.position + transform.position) > turretRange)) {
                 Shoot();
                 reloadTimer = 0f;
             }
@@ -74,6 +75,11 @@ public class TurretAI : MonoBehaviour {
 
     void Shoot() {
         Debug.Log(gameObject.name + " has shot " + currentTarget.name);
-        currentTarget.GetComponent<Enemyhealth>().Damage(turretPower);
+        GameObject bullet = new GameObject("bullet");
+        SpriteRenderer bulletSPR = bullet.AddComponent<SpriteRenderer>();
+        bulletSPR.sprite = bulletSprite;
+        bullet.transform.position = transform.position;
+        BulletMovement bulletScript = bullet.AddComponent<BulletMovement>();
+        bulletScript.ParseTarget(currentTarget, turretPower);
     }
 }

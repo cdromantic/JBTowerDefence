@@ -342,7 +342,7 @@ MonoBehaviour:
 
     Shoots HUGE T-shirts
 
-    Damage: 10, Range: 10, Speed: 3'
+    Damage: 10, Range: 15, Speed: 1'
 --- !u!114 &114231239514238000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -379,7 +379,7 @@ MonoBehaviour:
 
     Shoots T-shirts
 
-    Damage: 5, Range: 10, Speed: 5'
+    Damage: 1, Range: 10, Speed: 8'
 --- !u!114 &114263816175325608
 MonoBehaviour:
   m_ObjectHideFlags: 1

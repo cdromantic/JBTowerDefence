@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemyhealth : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour {
     public float enemyHealth;
     public float maxHealth = 10f;
     public float enemyDamade = 10f;

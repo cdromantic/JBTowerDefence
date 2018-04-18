@@ -53,8 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  bulletSprite: {fileID: 21300000, guid: 0ae3c4fa652def944ae88457047119ca, type: 3}
   turretPower: 10
-  turretRange: 10
+  turretRange: 15
   reloadTime: 4
 --- !u!212 &212875008481773198
 SpriteRenderer:

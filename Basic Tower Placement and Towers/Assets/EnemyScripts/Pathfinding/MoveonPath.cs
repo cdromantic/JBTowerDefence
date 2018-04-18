@@ -2,35 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveonPath : MonoBehaviour {
+public class MoveOnPath : MonoBehaviour {
+
     GameObject pathsHolder;
-	Paths FollowthePreMadepath;
+    Paths followPath;
 
-	public int CurrentwayPoint = 0;
-	public float Speed = 1;
-	public float ReachDistence = 0.25f;
-	public float Rotationspeed = 0.5f;
+    public int currentWayPoint = 0;
+    public float speed = 1;
+    public float reachDist = 0.25f;
+    public float rotateSpeed = 0.5f;
 
+    Vector3 lastPos;
+    Vector3 currentPos;
 
-	Vector3 Lastposition;
-	Vector3 Currentposition;
-
-	void Start () {
+    void Start() {
         pathsHolder = GameObject.FindGameObjectWithTag("WaveSpawner");
-        FollowthePreMadepath = pathsHolder.GetComponent<Paths>();
-        Lastposition = transform.position;
-        
-	}
-	
+        followPath = pathsHolder.GetComponent<Paths>();
+        lastPos = transform.position;
+    }
 
-	void Update () {
-		float Distence = Vector3.Distance (FollowthePreMadepath.pathObject [CurrentwayPoint].position, transform.position);
-		transform.position = Vector3.MoveTowards(transform.position,FollowthePreMadepath.pathObject [CurrentwayPoint].position, Time.deltaTime * Speed);
+    void Update() {
+        if (currentWayPoint != followPath.pathObject.Count) {
+            //this makes the enemy move towards the path
+            Debug.Log(followPath.pathObject.Count);
+            float dist = Vector3.Distance(followPath.pathObject[currentWayPoint].position, transform.position);
+            transform.position = Vector3.MoveTowards(transform.position, followPath.pathObject[currentWayPoint].position, Time.deltaTime * speed);
 
+            if (dist <= reachDist) {
+                currentWayPoint++;
+            }
+        }
 
-		if (Distence <= ReachDistence) {
-			CurrentwayPoint++;
-		}
-			
-	}
+        else {
+            //possibly plugin function for damaging JB here.
+            Destroy(gameObject);
+        }
+    }
 }
