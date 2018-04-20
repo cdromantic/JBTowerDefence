@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4758269710438298}
   - component: {fileID: 33895664244316364}
   - component: {fileID: 23133974159581780}
-  - component: {fileID: 114909167261886004}
-  - component: {fileID: 114305427104975886}
+  - component: {fileID: 114670293044028214}
+  - component: {fileID: 114496135472790762}
   - component: {fileID: 61819118142252598}
   m_Layer: 0
   m_Name: EnemyPrefab
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1216114289256938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.8, y: 2.83, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,22 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114305427104975886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1216114289256938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a31ef393dcaa204b832ddb29c7d2699, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentwayPoint: 0
-  Speed: 2
-  ReachDistence: 0.25
-  Rotationspeed: 5
---- !u!114 &114909167261886004
+--- !u!114 &114496135472790762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -138,4 +123,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 0
   maxHealth: 10
-  enemyDamade: 10
+  enemyDamage: 10
+--- !u!114 &114670293044028214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216114289256938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a31ef393dcaa204b832ddb29c7d2699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWayPoint: 0
+  speed: 3
+  reachDist: 0.25
+  rotateSpeed: 0.5

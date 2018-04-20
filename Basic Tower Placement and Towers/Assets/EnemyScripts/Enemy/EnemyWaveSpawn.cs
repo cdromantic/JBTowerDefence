@@ -11,8 +11,9 @@ public class EnemyWaveSpawn : MonoBehaviour {
     GameState enemyState = GameState.WaitForWave;
 
     float waveTimer = 0f;
-    float timer = 1f;
-    int waveNum = 0;
+    [SerializeField]
+    float timer;
+    public int waveNum = 0;
     int enemyToSpawn;
 
     [SerializeField]

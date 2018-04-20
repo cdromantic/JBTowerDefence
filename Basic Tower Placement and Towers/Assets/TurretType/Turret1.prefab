@@ -54,9 +54,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   bulletSprite: {fileID: 21300000, guid: 82db3140b32d60843a6ef01234c806cb, type: 3}
-  turretPower: 0.5
-  turretRange: 10
-  reloadTime: 0.5
+  turretPower: 1
+  turretRange: 5
+  reloadTime: 0.25
 --- !u!212 &212024546684019072
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1154515979
-  m_SortingLayer: 1
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 431ff9608371bcd4382c3352486eb43a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

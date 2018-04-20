@@ -6,6 +6,7 @@ public class MoveOnPath : MonoBehaviour {
 
     GameObject pathsHolder;
     Paths followPath;
+    EnemyWaveSpawn eWS;
 
     public int currentWayPoint = 0;
     public float speed = 1;
@@ -17,6 +18,7 @@ public class MoveOnPath : MonoBehaviour {
 
     void Start() {
         pathsHolder = GameObject.FindGameObjectWithTag("WaveSpawner");
+        eWS = pathsHolder.GetComponent<EnemyWaveSpawn>();
         followPath = pathsHolder.GetComponent<Paths>();
         lastPos = transform.position;
     }
@@ -29,12 +31,14 @@ public class MoveOnPath : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, followPath.pathObject[currentWayPoint].position, Time.deltaTime * speed);
 
             if (dist <= reachDist) {
+                lastPos = followPath.pathObject[currentWayPoint].position;
                 currentWayPoint++;
             }
         }
 
         else {
             //possibly plugin function for damaging JB here.
+            eWS.RemoveEnemyFromList(gameObject);
             Destroy(gameObject);
         }
     }

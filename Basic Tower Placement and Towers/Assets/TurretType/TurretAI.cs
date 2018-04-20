@@ -7,8 +7,8 @@ public class TurretAI : MonoBehaviour {
     GameObject currentTarget;
     public Sprite bulletSprite;
     bool hasCurrentTarget = false;
-    public float turretPower = 5f;
-    public float turretRange = 10f;
+    public float turretPower;
+    public float turretRange;
     RaycastHit2D hit;
 
     float dist;
@@ -24,21 +24,19 @@ public class TurretAI : MonoBehaviour {
         if (!hasCurrentTarget) {
             Debug.Log("We are finding a new target");
             GameObject tempTarget = null;
-            RaycastHit2D[] hitMult;
-            hitMult = Physics2D.CircleCastAll(transform.position, turretRange, Vector3.up, 0f);
+            Collider2D[] hitMult;
+            hitMult = Physics2D.OverlapCircleAll(transform.position, turretRange);
             //Debug.Log(hitMult.Length);
             dist = turretRange + 1f;
             for (int i = 0; i < hitMult.Length; i++) {
-                float tempDist = Vector2.SqrMagnitude(hitMult[i].collider.gameObject.transform.position - transform.position);
+                float tempDist = Vector2.Distance(hitMult[i].gameObject.transform.position, transform.position);
                 if (tempDist < dist) {
                     dist = tempDist;
-                    tempTarget = hitMult[i].collider.gameObject;
+                    tempTarget = hitMult[i].gameObject;
                 }
             }
             if (tempTarget != null) {
                 currentTarget = tempTarget;
-                //SpriteRenderer sprTempDebug = currentTarget.GetComponent<SpriteRenderer>();
-                //sprTempDebug.color = Color.red;
                 hasCurrentTarget = true;
             }
         }
@@ -60,15 +58,16 @@ public class TurretAI : MonoBehaviour {
 
     void ShootCheck() {
         if (currentTarget != null) {
-            if (!(Vector3.Magnitude(currentTarget.transform.position + transform.position) > turretRange)) {
+            if (Vector3.Distance(currentTarget.transform.position, transform.position) <= turretRange) {
+                Debug.Log("We shot with " + Vector3.Distance(currentTarget.transform.position, transform.position) + " distance");
                 Shoot();
                 reloadTimer = 0f;
             }
             else {
-                //currentTarget.GetComponent<SpriteRenderer>().color = Color.white;
-                currentTarget = null;
+                Debug.Log("test");
                 hasCurrentTarget = false;
                 Debug.Log("We have lost our old target");
+                currentTarget = null;
             }
         }
     }
@@ -80,6 +79,6 @@ public class TurretAI : MonoBehaviour {
         bulletSPR.sprite = bulletSprite;
         bullet.transform.position = transform.position;
         BulletMovement bulletScript = bullet.AddComponent<BulletMovement>();
-        bulletScript.ParseTarget(currentTarget, turretPower);
+        bulletScript.ParseTarget(currentTarget, turretPower, this);
     }
 }

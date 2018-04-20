@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
     public float enemyHealth;
     public float maxHealth = 10f;
-    public float enemyDamade = 10f;
+    public float enemyDamage = 10f;
     EnemyWaveSpawn listRemoval;
     // Use this for initialization
     void Start() {
-        enemyHealth = maxHealth;
         listRemoval = GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<EnemyWaveSpawn>();
+        maxHealth += (listRemoval.waveNum - 1) * 5;
+        enemyHealth = maxHealth;
     }
 
     // Update is called once per frame

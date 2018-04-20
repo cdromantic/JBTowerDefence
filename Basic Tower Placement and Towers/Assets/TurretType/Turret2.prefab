@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831062166546530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 452.03452, y: 234.47647, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   bulletSprite: {fileID: 21300000, guid: 0ae3c4fa652def944ae88457047119ca, type: 3}
   turretPower: 10
   turretRange: 15
-  reloadTime: 4
+  reloadTime: 2
 --- !u!212 &212875008481773198
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1154515979
-  m_SortingLayer: 1
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 61a24f35af276f34091ceb9fcb996338, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

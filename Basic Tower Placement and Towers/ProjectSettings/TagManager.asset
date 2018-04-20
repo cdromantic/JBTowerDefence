@@ -39,9 +39,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2705008943
+    locked: 0
+  - name: Placement
+    uniqueID: 3140451317
+    locked: 0
+  - name: Enemies
+    uniqueID: 14772745
+    locked: 0
+  - name: TurretBase
+    uniqueID: 1472600641
+    locked: 0
+  - name: TurretStock
+    uniqueID: 2202368311
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: testLayer
-    uniqueID: 3140451317
     locked: 0
