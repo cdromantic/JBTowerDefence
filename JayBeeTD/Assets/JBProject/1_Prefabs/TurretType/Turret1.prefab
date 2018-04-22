@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
-  bulletSprite: {fileID: 21300000, guid: 82db3140b32d60843a6ef01234c806cb, type: 3}
+  bulletSprite: {fileID: 21300000, guid: bee1cd18b9ea55b49bbc6c17e506e797, type: 3}
   turretPower: 1
   turretRange: 5
   reloadTime: 0.25
