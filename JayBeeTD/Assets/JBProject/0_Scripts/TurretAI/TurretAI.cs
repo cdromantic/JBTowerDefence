@@ -75,6 +75,7 @@ public class TurretAI : MonoBehaviour {
     void Shoot() {
         Debug.Log(gameObject.name + " has shot " + currentTarget.name);
         GameObject bullet = new GameObject("bullet");
+        bullet.transform.rotation = transform.rotation;
         SpriteRenderer bulletSPR = bullet.AddComponent<SpriteRenderer>();
         bulletSPR.sprite = bulletSprite;
         bullet.transform.position = transform.position;

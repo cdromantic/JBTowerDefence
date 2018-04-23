@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveOnPath : MonoBehaviour {
-    int fWaveNum;
-    JayBeeHealth jBHP;
+public class FollowPathJB : MonoBehaviour {
+    SpriteRenderer sPR;
     GameObject pathsHolder;
     Paths followPath;
-    EnemyWaveSpawn eWS;
 
     public int currentWayPoint = 0;
     public float speed = 1;
@@ -18,18 +16,15 @@ public class MoveOnPath : MonoBehaviour {
     Vector3 currentPos;
 
     void Start() {
-        jBHP = GameObject.FindGameObjectWithTag("Player").GetComponent<JayBeeHealth>();
-        pathsHolder = GameObject.FindGameObjectWithTag("WaveSpawner");
-        eWS = pathsHolder.GetComponent<EnemyWaveSpawn>();
+        sPR = GetComponent<SpriteRenderer>();
+        sPR.flipX = true;
+        pathsHolder = GameObject.FindGameObjectWithTag("JBWaveSpawner");
         followPath = pathsHolder.GetComponent<Paths>();
         lastPos = transform.position;
-        fWaveNum = eWS.waveNum;
-        speed += 0.25f * fWaveNum;
     }
 
     void Update() {
         if (currentWayPoint != followPath.pathObject.Count) {
-            //this makes the enemy move towards the path
             Debug.Log(followPath.pathObject.Count);
             float dist = Vector3.Distance(followPath.pathObject[currentWayPoint].position, transform.position);
             transform.position = Vector3.MoveTowards(transform.position, followPath.pathObject[currentWayPoint].position, Time.deltaTime * speed);
@@ -37,13 +32,13 @@ public class MoveOnPath : MonoBehaviour {
             if (dist <= reachDist) {
                 lastPos = followPath.pathObject[currentWayPoint].position;
                 currentWayPoint++;
+                sPR.flipX = false;
             }
         }
 
         else {
-            jBHP.Damage();
-            eWS.RemoveEnemyFromList(gameObject);
-            Destroy(gameObject);
+            currentWayPoint = 0;
+            sPR.flipX = true;
         }
     }
 }
