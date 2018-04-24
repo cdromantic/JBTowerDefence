@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
-    Vector3 oldVector;
-    TurretAI turretReference;
+    //Vector3 oldVector;
+    //TurretAI turretReference;
     float travelTime;
     float turretPower;
     public float bulletSpeed = 10;
@@ -31,7 +31,7 @@ public class BulletMovement : MonoBehaviour {
     private void MoveMethod() {
         targetVector = Vector3.Normalize(currentTarget.transform.position - transform.position);
         transform.position += targetVector * Time.deltaTime * bulletSpeed;
-        oldVector = targetVector;
+        //oldVector = targetVector;
     }
 
     private void DeathCheck() {
@@ -47,6 +47,6 @@ public class BulletMovement : MonoBehaviour {
     public void ParseTarget(GameObject target, float damage, TurretAI turret) {
         turretPower = damage;
         currentTarget = target;
-        turretReference = turret;
+        //turretReference = turret;
     }
 }

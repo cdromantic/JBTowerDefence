@@ -12,7 +12,7 @@ public class FollowPathJB : MonoBehaviour {
     public float reachDist = 0.25f;
     public float rotateSpeed = 0.5f;
 
-    Vector3 lastPos;
+    //Vector3 lastPos;
     Vector3 currentPos;
 
     void Start() {
@@ -20,7 +20,7 @@ public class FollowPathJB : MonoBehaviour {
         sPR.flipX = true;
         pathsHolder = GameObject.FindGameObjectWithTag("JBWaveSpawner");
         followPath = pathsHolder.GetComponent<Paths>();
-        lastPos = transform.position;
+        //lastPos = transform.position;
     }
 
     void Update() {
@@ -30,7 +30,7 @@ public class FollowPathJB : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, followPath.pathObject[currentWayPoint].position, Time.deltaTime * speed);
 
             if (dist <= reachDist) {
-                lastPos = followPath.pathObject[currentWayPoint].position;
+                //lastPos = followPath.pathObject[currentWayPoint].position;
                 currentWayPoint++;
                 sPR.flipX = false;
             }
