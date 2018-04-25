@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - WaveSpawner
+  - JBWaveSpawner
+  - GoldCounter
   layers:
   - Default
   - TransparentFX
