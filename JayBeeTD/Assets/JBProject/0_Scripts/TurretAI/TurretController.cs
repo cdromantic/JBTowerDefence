@@ -12,6 +12,7 @@ public class TurretController : MonoBehaviour {
     GameObject selectedTower;
 
     public int goldCount;
+    public int premCount;
     bool isPlacing = false;
     public GameObject tower1;
     public GameObject tower2;
@@ -61,7 +62,7 @@ public class TurretController : MonoBehaviour {
                 Instantiate(selectedTower, hit.collider.gameObject.transform.position, Quaternion.identity);
                 currentState = SelectState.WaitForSelection;
                 Destroy(hit.collider.gameObject);
-                myGold.AddGold(goldMinus, 0);
+                myGold.AddGold(goldMinus);
                 goldMinus = 0;
             }
         }
@@ -74,6 +75,10 @@ public class TurretController : MonoBehaviour {
 
     public void ParseGoldAmount(int goldAmount) {
         goldCount = goldAmount;
+    }
+    public void ParsePremAmount(int premAmount)
+    {
+        premCount = premAmount;
     }
 
     public void SwitchToTowerPlacement(int towerType) {

@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class GoldCounter : MonoBehaviour {
     //[SerializeField]
     //scriptthatyouwillwriteJordan JordansScriptForPremiumCurrency;
-    int premiumCurrency;
+    //int premiumCurrency;
     [SerializeField]
     TurretController tCont;
     public int goldCount;
     int currentGoldCount;
     int oldGoldCount;
-    int currentPremCount;
-    int oldPremCount;
+   // int currentPremCount;
+   // int oldPremCount;
     Text goldText;
 
     void Start() {
@@ -32,15 +32,18 @@ public class GoldCounter : MonoBehaviour {
             oldGoldCount = currentGoldCount;
             tCont.ParseGoldAmount(goldCount);
         }
-        if(currentPremCount != oldPremCount) {
-            oldPremCount = currentPremCount;
+        //if(currentPremCount != oldPremCount) {
+         //   oldPremCount = currentPremCount;
+
+            //tCont.ParsePremAmount(premiumCurrency);
+
             //JordansScriptForPremiumCurrency.SendPremAmt(premiumCurrency);
-        }
+        //}
     }
-    public void AddGold(int goldAmount, int premCurr) {
+    public void AddGold(int goldAmount) {
         goldCount += goldAmount;
-        premiumCurrency += premCurr;
-        currentPremCount = premiumCurrency;
+        //premiumCurrency += premCurr;
+       // currentPremCount = premiumCurrency;
     }
 }
 
