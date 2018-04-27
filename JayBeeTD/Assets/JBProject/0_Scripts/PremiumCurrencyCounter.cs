@@ -18,6 +18,7 @@ public class PremiumCurrencyCounter : MonoBehaviour
     {
         premiumCurrency = PlayerPrefs.GetInt("BeatCoin", 0);
         premiumText = GetComponentInChildren<Text>();
+        if (tCont != null)
         tCont.ParsePremAmount(premiumCurrency);
         premiumText.text = PlayerPrefs.GetInt("BeatCoin", premiumCurrency).ToString();
     }
@@ -33,6 +34,7 @@ public class PremiumCurrencyCounter : MonoBehaviour
             premiumText.text = premiumCurrency.ToString();
             oldPremCount = currentPremCount;
             PlayerPrefs.SetInt("BeatCoin", currentPremCount);
+            if (tCont != null)
             tCont.ParsePremAmount(premiumCurrency);
         }
     }
