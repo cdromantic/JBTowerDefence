@@ -61,6 +61,7 @@ public class EnemyWaveSpawn : MonoBehaviour {
         if (waveTimer >= timeToWait) {
             waveTimer = 0;
             waveNum += 1;
+            timer = Mathf.Clamp(timer -= 0.05f * waveNum, 0.05f, 10f);
             Debug.Log("change to spawning enemies");
             enemyToSpawn = 5 * waveNum;
             enemyState = GameState.SpawnEnemies;

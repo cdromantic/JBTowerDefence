@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/JBProject/Scenes/MainMenu.unity
+    path: Assets/JBProject/2_Scenes/MainMenu.unity
     guid: 220b9cd624367441e8934e58875f85bd
   - enabled: 1
-    path: Assets/JBProject/Scenes/Level1.unity
+    path: Assets/JBProject/2_Scenes/Level1.unity
     guid: 38699341102850b44a4d3f1a836bc75d

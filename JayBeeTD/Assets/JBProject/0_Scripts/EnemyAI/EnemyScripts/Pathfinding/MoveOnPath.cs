@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveOnPath : MonoBehaviour {
-    [SerializeField]
+    int fWaveNum;
     JayBeeHealth jBHP;
     GameObject pathsHolder;
     Paths followPath;
@@ -14,14 +14,17 @@ public class MoveOnPath : MonoBehaviour {
     public float reachDist = 0.25f;
     public float rotateSpeed = 0.5f;
 
-    Vector3 lastPos;
+    //Vector3 lastPos;
     Vector3 currentPos;
 
     void Start() {
+        jBHP = GameObject.FindGameObjectWithTag("Player").GetComponent<JayBeeHealth>();
         pathsHolder = GameObject.FindGameObjectWithTag("WaveSpawner");
         eWS = pathsHolder.GetComponent<EnemyWaveSpawn>();
         followPath = pathsHolder.GetComponent<Paths>();
-        lastPos = transform.position;
+        //lastPos = transform.position;
+        fWaveNum = eWS.waveNum;
+        speed += 0.25f * fWaveNum;
     }
 
     void Update() {
@@ -32,13 +35,15 @@ public class MoveOnPath : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, followPath.pathObject[currentWayPoint].position, Time.deltaTime * speed);
 
             if (dist <= reachDist) {
-                lastPos = followPath.pathObject[currentWayPoint].position;
+                //lastPos = followPath.pathObject[currentWayPoint].position;
                 currentWayPoint++;
             }
         }
 
         else {
-            jBHP.Damage();
+            if (jBHP != null) {
+                jBHP.Damage();
+            }
             eWS.RemoveEnemyFromList(gameObject);
             Destroy(gameObject);
         }

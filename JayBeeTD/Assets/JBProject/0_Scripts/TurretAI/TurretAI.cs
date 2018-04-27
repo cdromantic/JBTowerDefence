@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretAI : MonoBehaviour {
+    AudioSource myAudioSource;
     [SerializeField]
     GameObject currentTarget;
     public Sprite bulletSprite;
@@ -18,6 +19,7 @@ public class TurretAI : MonoBehaviour {
     float reloadTimer = 0;
 
     void Start() {
+        myAudioSource = GetComponent<AudioSource>();
         reloadTimef = reloadTime * 1f;
     }
     void Update() {
@@ -73,8 +75,10 @@ public class TurretAI : MonoBehaviour {
     }
 
     void Shoot() {
+        myAudioSource.Play();
         Debug.Log(gameObject.name + " has shot " + currentTarget.name);
         GameObject bullet = new GameObject("bullet");
+        bullet.transform.rotation = transform.rotation;
         SpriteRenderer bulletSPR = bullet.AddComponent<SpriteRenderer>();
         bulletSPR.sprite = bulletSprite;
         bullet.transform.position = transform.position;

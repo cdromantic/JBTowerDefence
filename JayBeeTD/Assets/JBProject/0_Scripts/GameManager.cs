@@ -91,9 +91,18 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void ToggleBGM() {
-        if (bgm != null) {
-            bgm.GetComponent<AudioSource>().enabled = !bgm.GetComponent<AudioSource>().enabled;
+    void ToggleBGM()
+	{
+        if (bgm != null)
+        {
+            if (!isPaused)
+            {
+                bgm.GetComponent<AudioSource>().UnPause();
+            }
+            else
+            {
+                bgm.GetComponent<AudioSource>().Pause();
+            }
         }
-    }
+	}
 }
