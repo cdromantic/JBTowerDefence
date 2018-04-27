@@ -17,8 +17,10 @@ public class JayBeeHealth : MonoBehaviour {
     }
     public void Damage() {
         jBHealth -= 1f;
-        if (jBHealth <= 0) {
+        if (jBHealth < 1f) {
+            jBIsDead = true;
             if (jBIsDead) {
+                //endgamescript
                 Destroy(gameObject);
             }
         }

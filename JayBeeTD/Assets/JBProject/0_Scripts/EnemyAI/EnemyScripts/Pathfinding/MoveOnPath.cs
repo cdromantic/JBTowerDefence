@@ -41,7 +41,9 @@ public class MoveOnPath : MonoBehaviour {
         }
 
         else {
-            jBHP.Damage();
+            if (jBHP != null) {
+                jBHP.Damage();
+            }
             eWS.RemoveEnemyFromList(gameObject);
             Destroy(gameObject);
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
-    int premGive = 0;
+    int premGive;
     GoldCounter playerGold;
     PremiumCurrencyCounter playerPrem;
     public float enemyHealth;
@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour {
         listRemoval = GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<EnemyWaveSpawn>();
         maxHealth += (listRemoval.waveNum - 1) * 5;
         enemyHealth = maxHealth;
+        premGive = Random.Range(1, 5);
     }
 
     public void Damage(float damage) {
@@ -24,7 +25,7 @@ public class EnemyHealth : MonoBehaviour {
         if (enemyHealth <= 0f) {
             //if (Random.Range(1, 200) == 200) premGive = 1;
             //{
-                playerPrem.AddPrem(1);
+                playerPrem.AddPrem(premGive);
             //}
             playerGold.AddGold(2);
             listRemoval.RemoveEnemyFromList(gameObject);
