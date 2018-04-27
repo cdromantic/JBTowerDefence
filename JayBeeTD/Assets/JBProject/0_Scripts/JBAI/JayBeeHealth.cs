@@ -20,7 +20,7 @@ public class JayBeeHealth : MonoBehaviour {
         if (jBHealth < 1f) {
             jBIsDead = true;
             if (jBIsDead) {
-                //endgamescript
+                //endgamescript();
                 Destroy(gameObject);
             }
         }
