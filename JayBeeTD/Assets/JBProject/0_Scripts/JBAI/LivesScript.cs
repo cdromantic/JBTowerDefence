@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LivesScript : MonoBehaviour {
+    [SerializeField]
     PremiumCurrencyCounter myPremiumCurrency;
     public Image[] lives;
     JayBeeHealth jBHP;
     int jayBeeLives;
 
 	void Start () {
-        myPremiumCurrency = GameObject.FindGameObjectWithTag("PremCounter").GetComponent<PremiumCurrencyCounter>();
         jBHP = GameObject.FindGameObjectWithTag("Player").GetComponent<JayBeeHealth>();
 	}
 
